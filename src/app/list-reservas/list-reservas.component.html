@@ -1,0 +1,43 @@
+
+  <div class="car border-primary mb-3 text-center">
+    <div style="margin-top: 142px;">
+      <div>
+        <h2>Ingrese el valor de la reserva</h2>
+        <input type="number" [(ngModel)]="numeroIngresado" placeholder="Ingresa un número">
+        <p >valor actual de la reserva: {{ this.reservaService.CostoReserva }}</p>
+        <button (click)="enviarNumero()">Enviar</button>
+        
+      </div>
+    <div class="card-header"><h1>Lista de reservas</h1></div>
+    <div class="card-body text-primary">
+      <div class="table-reponsive">
+        <table class="table" >
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>NOMBRE TATUADOR</th>
+              <th>FECHA RESERVA</th>
+              <th>ID PAGO</th>
+              <th>FECHA PAGO</th>
+              <th>MONTO</th>
+              <th>NOMBRE CLIENTE</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let reserva of reservas; let i = index" >
+            <td style="font-size: large;">{{i}}</td>
+            <td style="font-size: large;">{{reserva.Nombre_Tatuador + " " + reserva.Apellido_Tatuador | titlecase}}</td>
+            <td style="font-size: large;">{{reserva.Fecha_Reserva | date:'medium' | uppercase}}</td>
+            <td style="font-size: large;">{{reserva.Idpago}}</td>
+            <td style="font-size: large;">{{reserva.FechaPago | date:'medium' | uppercase}}</td>
+            <td style="font-size: large;">{{reserva.Monto | currency:'CLP'}}</td>
+            <td style="font-size: large;">{{reserva.Nombre_Cliente + " " + reserva.Apellido_Cliente | titlecase}}</td>
+            <br>
+            <br>
+            <br>
+            <br>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

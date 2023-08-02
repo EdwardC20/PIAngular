@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    margin: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 200px;
+    padding: 5px;
+  }
+  
+  #valor-ingresado {
+    margin-top: 10px;
+  }
+
+  
+  
+  
+  
+  

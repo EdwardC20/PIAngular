@@ -1,0 +1,106 @@
+
+<div id="centrar">
+
+
+  <div class="">
+    <span class="titulo">Seleccione un día</span>
+    <div class="h"></div>
+    <full-calendar class="calendar border-dark bg-dark text-white" [options]="calendarOptions" id="calendar"></full-calendar>
+
+  </div>
+
+  <ng-template #template >
+    <div class="modal-contenido">
+      <span (click)="modalRef?.hide()" class="cerrar">&times;</span>
+      <h1 style="text-align: center;">Reservar</h1>
+      <form id="formulario" [formGroup]="reservaForm">
+          <div class="completo">
+            <div class="untercio">
+              <label for="nombre">Nombre:</label>
+            </div>
+            <div class="dostercio">
+              <input type="text" id="nombre" name="nombre" required value="{{local.Nombre}}">
+            </div>
+          </div>
+
+          <div class="completo">
+            <div class="untercio">
+              <label for="apellido">Apellido:</label>
+            </div>
+            <div class="dostercio">
+              <input type="text" id="apellido" name="apellido" required value="{{local.Apellido}}">
+            </div>
+          </div>
+
+          <div class="completo">
+            <div class="untercio">
+              <label for="correo">Correo Electrónico:</label>
+            </div>
+            <div class="dostercio">
+              <input type="email" id="correo" name="correo" required value="{{local.CorreoElectronico}}">
+            </div>
+          </div>
+
+          <div class="completo">
+            <div class="untercio">
+              <label for="edad">Edad:</label>
+            </div>
+            <div class="dostercio">
+              <input type="number" id="edad" name="edad" min="14" max="99" required value="{{local.Edad}}">
+            </div>
+          </div>
+            <legend>¿Primer tatuaje?</legend>
+            <label>
+              <input type="radio" name="opciones" value="opcion1" checked> Si
+              <input type="radio" name="opciones" value="opcion2">NO
+            </label>
+
+          <div class="completo">
+            <div class="untercio">
+              <label for="parte-cuerpo">Zona del cuerpo a tatuar:</label>
+            </div>
+            <div class="dostercio">
+              <select id="parte-cuerpo" name="parte-cuerpo" required formControlName="Descripción">
+                <option value="">Seleccione una opción</option>
+                <option value="cabeza">Cabeza</option>
+                <option value="rostro">Rostro</option>
+                <option value="cuello">Cuello</option>
+                <option value="pecho">Pecho</option>
+                <option value="abdomen">Abdomen</option>
+                <option value="costillas">Costillas</option>
+                <option value="espalda">Espalda</option>
+                <option value="brazos">Brazos</option>
+                <option value="manos">Manos</option>
+                <option value="piernas">Piernas</option>
+                <option value="pies">Pies</option>
+                <option value="otra-parte">Otra parte</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="completo">
+            <div class="untercio">
+              <label for="imagenObj">Subir imagen:</label>
+            </div>
+            <div class="dostercio">
+              <input type="file" (change)="onfileChange($event)">
+            </div>
+          </div>
+
+          <div class="completo">
+            <div class="untercio">
+              <label for="imagenObj">Comentario:</label>
+            </div>
+            <div class="dostercio">
+              <textarea id="comentario" rows="4" cols="50" maxlength="20" minlength="10" placeholder="Escribe tu mensaje..." formControlName="Comentario"></textarea>
+            </div>
+          </div>
+        <div class="completo text-center">
+          <app-pago (emisor)="onDataRecieved($event )"></app-pago>
+          <button id="botonenviar" type="button" class="btn btn-primary" (click)="guardar()" *ngIf="pago[0]=='COMPLETED'">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+</div>

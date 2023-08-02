@@ -1,0 +1,40 @@
+
+.container {
+  padding: 70px;
+}
+
+h4 {
+  color: #fff;
+}
+
+ul li a {
+  color: #fff;
+}
+
+.col-md-4{
+  text-align: center;
+}
+
+
+
+.quince{
+  margin-top: 2%;
+  width: 15%;
+  height: 90%;
+  float: left; 
+  text-align: center;
+}
+
+.treinta{
+  width: 30%;
+  height: 90%;
+  float: left; 
+}
+
+.NU{
+  margin-left: 17%;
+}
+
+.busca{
+  content: center;
+}

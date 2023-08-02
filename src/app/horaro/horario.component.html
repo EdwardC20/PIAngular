@@ -1,0 +1,27 @@
+
+<div id="centrar">
+    <div class="d-flex flex-column botones">
+      <button class="tatuadores text-white" (click)="changeTatuador(1,'Cristian Donoso')">Cristian Donoso</button>
+      <button class="tatuadores " (click)="changeTatuador(2,'Julio Escalona')">Julio Escalona</button>
+      <button class="tatuadores  text-white" (click)="changeTatuador(3,'Emerson Rojas')">Emerson Rojas</button>
+      <button class="tatuadores " (click)="changeTatuador(4,'Cristian Silva')">Cristian Silva</button>
+    </div>
+    <div class="X">
+      <div class="" *ngIf="tatuador==1">
+        <app-horario1></app-horario1>
+      </div>
+      <div class="" *ngIf="tatuador==2">
+        <app-horario2></app-horario2>
+      </div>
+      <div class="" *ngIf="tatuador==3">
+        <app-horario3></app-horario3>
+      </div>
+      <div class="" *ngIf="tatuador==4">
+        <app-horario4></app-horario4>
+      </div>
+    </div>
+
+</div>
+
+
+<!-- <div #paypal></div> -->

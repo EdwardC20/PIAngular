@@ -1,0 +1,65 @@
+<!-- <h2>Galería de imágenes</h2>
+<div class="modal-body">
+  <div class="Cimagenes" *ngFor="let image of images">
+    <img [src]="image" alt="Imagen" [class.expanded]="image === selectedImage" (click)="expandImage(image)">
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-danger" mat-button (click)="closeDialog()">Cerrar</button>
+</div> -->
+<div class="head">
+  <h2>Galería de imágenes</h2>
+  <div class="modal-body">
+    <div class="Cimagenes" *ngFor="let image of tatusPortafolio">
+      <img src={{image.LinkImagen}} alt="Imagen" [class.expanded]="image.LinkImagen === selectedImage"
+        (click)="expandImage(image.LinkImagen,image.IdImagen)">
+    </div>
+    <!-- Campo de entrada para el link de la nueva imagen -->
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger" mat-button (click)="closeDialog()">Cerrar</button>  
+    <button class="btn btn-primary" mat-button *ngIf="(local?.IdRol==3 ||local?.IdUsuario==this.id_portafolio)" (click)="AgregarTatuajePortafolio()">Agregar imagen</button>
+    <button class="btn btn-primary" mat-button *ngIf="this.tipo==1 && (local?.IdRol==3 ||local?.IdUsuario==this.id_portafolio)" (click)="EliminarTatuajePortafolio()">Eliminar</button>
+    
+  </div>
+</div>
+
+<ng-template #template >
+  <div class="modal-contenido">
+    <span (click)="modalRef?.hide()" class="cerrar">&times;</span>
+    <h1 style="text-align: center;">Agregar imagen al portafolio</h1>
+    <form id="formulario" [formGroup]="resgistroTat">
+        <div class="completo">
+          <div class="untercio">
+            <label for="NomImagen">Nombre de la imagen:</label>
+          </div>
+          <div class="dostercio">
+            <input type="text" id="NomImagen" name="NomImagen" formControlName="NomImagen" required>
+          </div>
+        </div>
+
+        <div class="completo">
+          <div class="untercio">
+            <label for="apellido">Subir imagen:</label>
+          </div>
+          <div class="dostercio">
+            <input type="file" (change)="onfileChange($event)">
+          </div>
+        </div>
+
+        <div class="completo">
+          <div class="untercio">
+            <label for="correo">Descripcion:</label>
+          </div>
+          <div class="dostercio">
+            <input type="email" id="Descripcion" name="Descripcion" formControlName="Descripcion"required>
+          </div>
+        </div>
+
+      <div class="completo text-center">
+        <button id="botonenviar" type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

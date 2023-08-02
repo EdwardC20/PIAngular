@@ -1,0 +1,23 @@
+<div class="container vh-100 justify-content-center d-flex align-items-center">
+  <div class="login-container w-50 border mx-auto rounded shadow py-4">
+    <h1 class="text-center my-4">Iniciar Sesión</h1>
+    <form action="" class="form  " [formGroup]="formLogin" action="/">
+      <div class="form-group mx-5 my-3">
+        <label for="">Correo</label>
+        <input class="form-control" type="email" formControlName="email">
+      </div>
+    <div class="form-group mx-5 my-3">
+      <label for="">Contraseña</label>
+      <input class="form-control" type="password" formControlName="password">
+    </div>
+    <div class="mx-5">
+      <span>¿Olvidaste tu contraseña?<a class="text-decoration-none mx-2" href="">Click aquí</a></span>
+
+    </div>
+    <div class="actions justify-content-center d-flex my-3">
+      <button class="btn btn-dark w-100 mx-5" type="submit" (click)="login()">Ingresar</button>
+    </div>
+    <p class="mx-5">¿No tienes cuenta?<span><a class="text-decoration-none mx-2" href="" routerLink="/register">Registrate</a></span></p>
+    </form>
+  </div>
+</div>
