@@ -25,14 +25,6 @@ export class horarioComponent implements OnInit {
       to: ""
     };
 
-    this.http.post<any>('http://localhost:3000/send-email', data).subscribe(
-      (response: any) => {
-        console.log(response); // Puedes mostrar un mensaje de éxito al usuario
-      },
-      (error: any) => {
-        console.error(error); // Puedes mostrar un mensaje de error al usuario
-      }
-    );
   }
 
 

@@ -60,11 +60,7 @@ export class HomePortafolioComponent {
   
 
   EliminarTatuador(id: number) {
-    this.tatuadoresService.EliminarTatuadores(id)
-      .subscribe((respuesta: any) => {
-        console.log(respuesta);
-        this.getTatuadores();
-      })
+
   }
 
 
