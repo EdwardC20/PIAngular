@@ -83,7 +83,7 @@ export class ModalgalleryComponent {
     this.tatusPortafolio3 = [
       {
       IdImagen: 7,
-      LinkImagen:"http://localhost:4200/assets/ManoMandala.jpg",
+      LinkImagen:"https://firebasestorage.googleapis.com/v0/b/tatoores-50e20.appspot.com/o/ManoMandala.jpg?alt=media&token=26d6ca41-bfed-4a15-90c3-8517f6812896",
       },
       {
         IdImagen: 8,
@@ -97,7 +97,7 @@ export class ModalgalleryComponent {
     this.tatusPortafolio4 = [
       {
       IdImagen: 10,
-      LinkImagen:"http://localhost:4200/assets/tatuajehombro.jpg",
+      LinkImagen:"https://firebasestorage.googleapis.com/v0/b/tatoores-50e20.appspot.com/o/tatuajehombro.jpg?alt=media&token=2b157fe5-348f-4017-91e4-fb0246fafc19",
       },
       {
         IdImagen: 11,
