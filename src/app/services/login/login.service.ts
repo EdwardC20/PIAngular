@@ -23,7 +23,7 @@ export class LoginService {
     },
     {
       IdUsuario:8,
-      Nombre:"jaime",
+      Nombre:"Jaime",
       Apellido:"Ayala",
       CorreoElectronico:"jaimeayalac@gmail.com",
       Contrasenia:"jaimea",
