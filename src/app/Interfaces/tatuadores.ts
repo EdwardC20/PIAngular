@@ -37,10 +37,10 @@ export class ListadoReservas{
   IdReserva!: number;
   Nombre_Tatuador!: string;
   Apellido_Tatuador!: string;
-  Fecha_Reserva!: Date;
+  Fecha_Reserva!: string;
   Nombre_Cliente!: string;
   Apellido_Cliente!: string;
   Idpago!: number;
   Monto!: number;
-  FechaPago!: Date;
+  FechaPago!: string;
 }

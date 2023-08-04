@@ -15,7 +15,7 @@ export class ReservaService {
 
 
 
-  CostoReserva!:number;
+  CostoReserva=12;
   public reservas:any[]=[];
   constructor(private http : HttpClient) { }
 

@@ -15,22 +15,22 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>NOMBRE TATUADOR</th>
               <th>FECHA RESERVA</th>
-              <th>ID PAGO</th>
-              <th>FECHA PAGO</th>
-              <th>MONTO</th>
+              <th>NOMBRE TATUADOR</th>
               <th>NOMBRE CLIENTE</th>
+              <th>ID PAGO</th>
+              <th>MONTO</th>
+              <th>FECHA PAGO</th>
             </tr>
           </thead>
           <tr *ngFor="let reserva of reservas; let i = index" >
-            <td style="font-size: large;">{{i}}</td>
-            <td style="font-size: large;">{{reserva.Nombre_Tatuador + " " + reserva.Apellido_Tatuador | titlecase}}</td>
+            <td style="font-size: large;">{{reserva.IdReserva}}</td>
             <td style="font-size: large;">{{reserva.Fecha_Reserva | date:'medium' | uppercase}}</td>
-            <td style="font-size: large;">{{reserva.Idpago}}</td>
-            <td style="font-size: large;">{{reserva.FechaPago | date:'medium' | uppercase}}</td>
-            <td style="font-size: large;">{{reserva.Monto | currency:'CLP'}}</td>
+            <td style="font-size: large;">{{reserva.Nombre_Tatuador + " " + reserva.Apellido_Tatuador | titlecase}}</td>
             <td style="font-size: large;">{{reserva.Nombre_Cliente + " " + reserva.Apellido_Cliente | titlecase}}</td>
+            <td style="font-size: large;">{{reserva.Idpago}}</td>
+            <td style="font-size: large;">{{reserva.Monto | currency:'EUR'}}</td>
+            <td style="font-size: large;">{{reserva.FechaPago | date:'medium' | uppercase}}</td>
             <br>
             <br>
             <br>

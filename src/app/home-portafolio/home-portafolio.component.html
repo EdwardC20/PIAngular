@@ -4,9 +4,9 @@
    
     <div class="carousel">
       <div class="content text-center">
-        <!-- Contenido del carrusel aquí -->
+       
 
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img src="https://media.istockphoto.com/id/1307094739/es/foto/foto-de-primer-plano-de-una-tatuada-chica-poni%C3%A9ndose-un-tatuaje-en-el-brazo-de-un-joven-en-una.jpg?b=1&s=170667a&w=0&k=20&c=B1eLqlTPSF09EvH7pstqnbVEeYUeOUQqVEFj6Twc2Rc=" class="d-block w-100" alt="...">
@@ -18,11 +18,11 @@
               <img src="https://cdn.pixabay.com/photo/2017/10/27/13/40/tattoo-2894318_640.jpg" class="d-block w-100" alt="...">
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -61,7 +61,7 @@
     <div class="portafolio text-center mt-5">
       <div class="py-5 border d-flex justify-content-between mb-4" *ngFor="let tDestacados of tatuajesDestacados">
         <div class="imagenTdestacada">
-          <img src={{tDestacados.LinkImagen}} alt="" class="rounded-circle mx-5" style="max-height: 250px; max-width: 250px;">
+          <img src={{tDestacados.LinkImagen}} alt="" class="rounded-circle mx-5" style="height: 80%; width: 100%;">
         </div>
         <div class="TextoTdestacada">
           <h1 class="TituloTatudes"><strong>{{tDestacados.NomImagen | uppercase}}</strong></h1>

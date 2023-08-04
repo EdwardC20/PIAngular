@@ -7,6 +7,16 @@ export class IUser{
   Sexo!:string;
 }
 
+export class Usuario{
+  IdUsuario!:number;
+  Nombre!:string;
+  Apellido!:string;
+  CorreoElectronico!:string;
+  Contrasenia!:string;
+  IdRol!:number;
+  Edad!:number;
+  Sexo!:string;
+}
 
 export class Itatuador{
   Nombre!:string;

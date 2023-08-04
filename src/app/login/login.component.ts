@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login/login.service';
 import { Router } from '@angular/router';
+import { Usuario } from '../Interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   formLogin: FormGroup;
-
+  UsuarioLogin!:Usuario;
   constructor(private loginService: LoginService, private fb: FormBuilder, private router:Router){
     this.formLogin = this.fb.group({
       email:['', [Validators.required, Validators.email]],
@@ -23,17 +24,17 @@ export class LoginComponent {
   login(){
     console.log(this.formLogin.value.email);
     console.log(this.formLogin.value.password);
-    this.loginService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((res:any)=>{
-      console.log(res.data[0].IdUsuario);
-      this.loginService.idUsuario = res.data[0].IdUsuario;
-      this.loginService.rol = res.data[0].IdRol
-      localStorage.setItem('UsuarioLogueado', JSON.stringify(res.data[0]))
-      this.router.navigate(['/home']).then(() => {
-
-        location.reload();
-      });
-    });
-
+    for(let i=0; this.loginService.UsuariosRegistrados.length;i++){
+      if((this.loginService.UsuariosRegistrados[i].CorreoElectronico==this.formLogin.value.email) && (this.loginService.UsuariosRegistrados[i].Contrasenia ==this.formLogin.value.password)){
+        this.loginService.idUsuario = this.loginService.UsuariosRegistrados[i].IdUsuario;
+        this.loginService.rol = this.loginService.UsuariosRegistrados[i].IdRol;
+        localStorage.setItem('UsuarioLogueado', JSON.stringify(this.loginService.UsuariosRegistrados[i]));
+        this.UsuarioLogin=this.loginService.UsuariosRegistrados[i];
+        this.router.navigate(['/home']).then(() => {
+          location.reload();
+        });
+      }
+    }
   }
 }
 
