@@ -77,15 +77,6 @@ export class PagoComponent implements OnInit{
       fecha:this.reservaService.FechaReserva
     };
     console.log(data);
-
-    this.http.post<any>('http://localhost:3000/send-email', data).subscribe(
-      (response: any) => {
-        console.log(response); // Puedes mostrar un mensaje de éxito al usuario
-      },
-      (error: any) => {
-        console.error(error); // Puedes mostrar un mensaje de error al usuario
-      }
-    );
   }
 
 }

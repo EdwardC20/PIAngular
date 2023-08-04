@@ -59,7 +59,7 @@ export class horario4Component {
   async ngOnInit() {
 
 
-    this.inicializarData();
+  
 
     // Obtener los records de PocketBase y añadirlos al arreglo 'reservas' como objeto {title:'reservado', start:fecha+T+hora}
     /* const record = await pb.collection('booking').getFullList();
@@ -175,79 +175,6 @@ export class horario4Component {
     console.log(cadena.split('T')[1].split(':'));
   } */
   async guardar(){
-    console.log(this.start);
-    this.reservaForm.value.FechaInicio = this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00';
-    this.reservaForm.value.FechaFin = this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00';
-    console.log(this.reservaForm.value.FechaInicio);
-    console.log(this.reservaForm.value);
-    this.reservaService.newReserva(this.reservaForm.value).subscribe(  (response) => {
-      console.log(response);
-      console.log('Hola');
-      this.router.navigate(['/horario']);
-      window.location.reload();
-      this.inicializarData();
-    },
-    (error: HttpErrorResponse) => {
-      // Si ocurre un error, aquí puedes obtener el código de error de la consulta POST.
-      console.error('Código de error:', error.status);
-      console.error('Mensaje de error:', error.message);
-    });
-
-
-    console.log(this.reservaForm.value);
-    let evento={
-      title:'Reserva Guardada',
-      start: this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00',
-    };
-    this.reservas.push(evento);
-    this.modalRef?.hide();
-    console.log(evento);
-
-    this.calendarOptions.events=this.reservas;
-
-    /* const usuario = await pb.collection('users').authWithPassword("test@mail.com", "7G9kH5p2W4L");
-    pb.admins.authWithPassword("angelo.orellana1901@alumnos.ubiobio.cl" , "Racering1*2")
-
-    const user = await pb.collection('users').create({
-
-      email:this.reservaForm.value.email,
-      name:this.reservaForm.value.name,
-      password:'pa2321f1',
-      passwordConfirm:'pa2321f1'
-
-    });
-    console.log(this.reservaForm.value.type);
-    const descrip = await pb.collection('tattoo_desc').create({
-      tattoo_type:this.reservaForm.value.type,
-      desc:this.reservaForm.value.description
-    })
-    console.log("descrip:");
-    console.log(descrip);
-
-    const final = pb.collection('booking').create({
-      user_id:user.id,
-      nombre: this.reservaForm.value.name,
-      desc:descrip.id,
-      fecha: this.reservaForm.value.fecha,
-      hora:this.reservaForm.value.hora,
-      restricionesMedicas:this.reservaForm.value.restricciones,
-    });
-    console.log(final);
-    console.log(this.reservaForm.value); */
-
-
-
-
-
-    this.reservaForm.value.fecha = '';
-    this.reservaForm.value.hora='';
-    this.reservaForm.value.restricciones='';
-    this.reservaForm.value.name='';
-    this.reservaForm.value.description ='';
-
-    /* final.then(function(){
-      window.location.reload();
-    }); */
   }
 
   urlimagen!: string;

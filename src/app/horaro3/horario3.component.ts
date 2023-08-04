@@ -59,7 +59,7 @@ export class horario3Component {
   async ngOnInit() {
 
 
-    this.inicializarData();
+
 
     // Obtener los records de PocketBase y añadirlos al arreglo 'reservas' como objeto {title:'reservado', start:fecha+T+hora}
     /* const record = await pb.collection('booking').getFullList();
