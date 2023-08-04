@@ -139,7 +139,7 @@ export class HomePortafolioComponent {
           Apellido: "Rojas",
           IdImagen: 93,
           NomImagen: "El hombro del rey",
-          LinkImagen: "http://localhost:4200/assets/tatuajehombro.jpg",
+          LinkImagen: "https://firebasestorage.googleapis.com/v0/b/tatoores-50e20.appspot.com/o/tatuajehombro.jpg?alt=media&token=2b157fe5-348f-4017-91e4-fb0246fafc19",
           Fecha: "2023-07-22",
           Descripcion:"En el diseño, se destaca un cuervo majestuoso y detallado, representado en un estilo realista o en un estilo más estilizado y artístico, según las preferencias del individuo."
         },
@@ -148,7 +148,7 @@ export class HomePortafolioComponent {
           Apellido: "Silva",
           IdImagen: 92,
           NomImagen: "La mano de buda",
-          LinkImagen: "http://localhost:4200/assets/ManoMandala.jpg",
+          LinkImagen: "https://firebasestorage.googleapis.com/v0/b/tatoores-50e20.appspot.com/o/ManoMandala.jpg?alt=media&token=26d6ca41-bfed-4a15-90c3-8517f6812896",
           Fecha: "2023-06-12",
           Descripcion: "Este tatuaje de una mandala en la mano es un diseño intrincado y detallado que adorna el dorso de la mano. La mandala, un símbolo sagrado en varias tradiciones espirituales, se presenta en forma de un círculo perfecto que se irradia desde el centro hacia el exterior. El tatuaje incorpora una variedad de patrones geométricos y elementos decorativos en su diseño.",
         },
