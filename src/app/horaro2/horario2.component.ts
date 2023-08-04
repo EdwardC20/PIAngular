@@ -59,7 +59,6 @@ export class horario2Component {
   async ngOnInit() {
 
 
-    this.inicializarData();
 
     // Obtener los records de PocketBase y añadirlos al arreglo 'reservas' como objeto {title:'reservado', start:fecha+T+hora}
     /* const record = await pb.collection('booking').getFullList();
@@ -73,33 +72,9 @@ export class horario2Component {
     type.forEach(element=>{
         this.tattootypes.push({nombre:element['name'],id:element['id']});
     }) */
-    console.log(this.tattootypes,'AAAA');
-     console.log(this.reservas,'BBBB');
 
   }
   inicializarData(){
-    this.reservaService.getReservas().subscribe((res:any[])=>{
-      console.log(res,'XXXX');
-      res.forEach(element=>{
-        let hora=element.FechaInicio.split('T')[1].split(':')[0]
-        hora= hora-4;
-        if(hora < 10){
-          hora = '0'+hora;
-        }
-
-        if(element.IdUsuarioT===this.tatuador){
-          console.log(element.FechaInicio,'RRRR' , hora);
-        this.reservas.push({
-          title:'Reservado',
-          start: element.FechaInicio.split('T')[0]+'T'+hora+':00:00',
-
-        })
-        }
-      })
-
-      this.calendarOptions.events = this.reservas;
-      console.log(this.reservaService.reservas[0],this.reservas ,'YYY');
-    });
   }
   title:string='';
   calendarOptions: CalendarOptions = {
@@ -181,18 +156,6 @@ export class horario2Component {
     this.reservaForm.value.FechaFin = this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00';
     console.log(this.reservaForm.value.FechaInicio);
     console.log(this.reservaForm.value);
-    this.reservaService.newReserva(this.reservaForm.value).subscribe(  (response) => {
-      console.log(response);
-      console.log('');
-      this.router.navigate(['/horario']);
-      window.location.reload();
-      this.inicializarData();
-    },
-    (error: HttpErrorResponse) => {
-      // Si ocurre un error, aquí puedes obtener el código de error de la consulta POST.
-      console.error('Código de error:', error.status);
-      console.error('Mensaje de error:', error.message);
-    });
 
 
     console.log(this.reservaForm.value);

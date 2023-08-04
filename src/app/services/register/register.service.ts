@@ -12,7 +12,6 @@ export class RegisterService {
   constructor(private http : HttpClient) { }
 
   register(usuario: IUser, id: number){
-    return this.http.post('http://localhost:3000/usuario/'+ id, usuario);
   }
   
 

@@ -11,26 +11,18 @@ export class PortafolioService {
   constructor(private http: HttpClient) { }
 
 
-  getPortafolioByIdTatuador(id:number): Observable<TatusPortafolio[]>{
-    const url = 'http://localhost:3000/PortafolioTataudor/'+id;
-    return this.http.get<TatusPortafolio[]>(url)
+  getPortafolioByIdTatuador(id:number){
   }
 
-  EliminarTatuajeDePortafolioByTatuaje(id:number): Observable<any>{
-    const url = 'http://localhost:3000/portafolio/Tatuaje/'+id;
-    return this.http.delete(url)
+  EliminarTatuajeDePortafolioByTatuaje(id:number){
   }
 
 
   AgregarTatuajePortafolio(tatoo :AgregarTatu){
-    console.log("es");
-    console.log(tatoo);
-    return this.http.post('http://localhost:3000/portafolio/Tatuaje', tatoo);
   }
 
-  uploadImage(vals:any):Observable<any>{
-    let data = vals;
-    return this.http.post("https://api.cloudinary.com/v1_1/dthoglisj/image/upload", data);
+  uploadImage(vals:any){
+
   }
 
 

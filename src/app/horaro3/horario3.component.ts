@@ -77,28 +77,7 @@ export class horario3Component {
 
   }
   inicializarData(){
-    this.reservaService.getReservas().subscribe((res:any[])=>{
 
-      res.forEach(element=>{
-        let hora=element.FechaInicio.split('T')[1].split(':')[0]
-        hora= hora-4;
-        if(hora < 10){
-          hora = '0'+hora;
-        }
-
-        if(element.IdUsuarioT===this.tatuador){
-
-        this.reservas.push({
-          title:'Reservado',
-          start: element.FechaInicio.split('T')[0]+'T'+hora+':00:00',
-
-        })
-        }
-      })
-
-      this.calendarOptions.events = this.reservas;
-
-    });
   }
   title:string='';
   calendarOptions: CalendarOptions = {
@@ -177,18 +156,6 @@ export class horario3Component {
 
     this.reservaForm.value.FechaInicio = this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00';
     this.reservaForm.value.FechaFin = this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00';
-
-    this.reservaService.newReserva(this.reservaForm.value).subscribe(  (response) => {
-
-      this.router.navigate(['/horario']);
-      window.location.reload();
-      this.inicializarData();
-    },
-    (error: HttpErrorResponse) => {
-      // Si ocurre un error, aquí puedes obtener el código de error de la consulta POST.
-      console.error('Código de error:', error.status);
-      console.error('Mensaje de error:', error.message);
-    });
 
 
 

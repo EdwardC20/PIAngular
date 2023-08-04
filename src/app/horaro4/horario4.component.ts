@@ -77,28 +77,7 @@ export class horario4Component {
 
   }
   inicializarData(){
-    this.reservaService.getReservas().subscribe((res:any[])=>{
 
-      res.forEach(element=>{
-        let hora=element.FechaInicio.split('T')[1].split(':')[0]
-        hora= hora-4;
-        if(hora < 10){
-          hora = '0'+hora;
-        }
-
-        if(element.IdUsuarioT===this.tatuador){
-
-        this.reservas.push({
-          title:'Reservado',
-          start: element.FechaInicio.split('T')[0]+'T'+hora+':00:00',
-
-        })
-        }
-      })
-
-      this.calendarOptions.events = this.reservas;
-
-    });
   }
   title:string='';
   calendarOptions: CalendarOptions = {

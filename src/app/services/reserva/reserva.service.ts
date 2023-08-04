@@ -19,28 +19,22 @@ export class ReservaService {
   public reservas:any[]=[];
   constructor(private http : HttpClient) { }
 
-  newReserva(reservas:any):Observable<any>{
-    console.log("sillega");
-    console.log(reservas);
-    return this.http.post('http://localhost:3000/reservas', reservas)
+  newReserva(reservas:any){
   }
 
-  getReservas():Observable<any>{
-    return this.http.get<any[]>('http://localhost:3000/reserva').pipe(map((res:any)=>res.data));
+  getReservas(){
+
   }
 
-  getTodasLasReservas():Observable<ListadoReservas[]>{
-    return this.http.get<ListadoReservas[]>('http://localhost:3000/TodasLasReservas');
+  getTodasLasReservas(){
+
   }
 
-  getCostoReserva():Observable<any>{
-    return this.http.get<any>('http://localhost:3000/Reservas/Costo');
+  getCostoReserva(){
   }
 
-  putCostoReserva(costo: number): Observable<any>{
-    const body = { Tipo_imagen: 1};
-    const url = 'http://localhost:3000/Reservas/CambiarCosto/'+costo;
-    return this.http.put(url,body)
+  putCostoReserva(costo: number){
+
   }
 
 

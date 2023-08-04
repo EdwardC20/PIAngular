@@ -76,10 +76,7 @@ export class horarioComponent implements OnInit {
     }
 
     ObtenerCosto() {
-      this.reservaService.getCostoReserva().subscribe((respuesta:any) =>{
-        console.log(respuesta.data[0].CostoPago);
-        this.reservaService.CostoReserva =respuesta.data[0].CostoPago;
-      })
+
     }
 
   }

@@ -11,18 +11,15 @@ export class TatuadoresService {
   constructor(private http: HttpClient) { }
 
 
-   getTatuadores(): Observable<tatuadores[]>{
-    const url = 'http://localhost:3000/Tatuadores';
-    return this.http.get<tatuadores[]>(url)
+   getTatuadores(){
+
   }
 
-  EliminarTatuadores(id:number): Observable<any>{
-    const url = 'http://localhost:3000/Tatuador/Eliminar/'+id;
-    return this.http.delete(url)
+  EliminarTatuadores(id:number){
+
   }
 
-  getEspecialidades(id:number): Observable<string[]>{
-    const url = 'http://localhost:3000/Tatuadores/especialidades/'+id;
-    return this.http.get<string[]>(url)
+  getEspecialidades(id:number){
+
   }
 }

@@ -38,9 +38,5 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(email:any,password:any){
-    let userLogin = { CorreoElectronico:email, Contrasenia:password };
-    
-    return this.http.post('http://localhost:3000/login', userLogin)
-
   }
 }

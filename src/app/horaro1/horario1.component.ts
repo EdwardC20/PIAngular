@@ -22,7 +22,6 @@ export class horario1Component implements OnInit {
   pago:any[]=[];
   onDataRecieved(data: any ) {
     this.pago=data;
-    this.guardar();
 
   }
   modal = "none";
@@ -60,37 +59,11 @@ export class horario1Component implements OnInit {
   async ngOnInit() {
 
 
-    this.inicializarData();
 
 
-
-    console.log(this.tattootypes,'AAAA');
-     console.log(this.reservas,'BBBB');
 
   }
   inicializarData(){
-    this.reservaService.getReservas().subscribe((res:any[])=>{
-      console.log(res,'XXXX');
-      res.forEach(element=>{
-        let hora=element.FechaInicio.split('T')[1].split(':')[0]
-        hora= hora-4;
-        if(hora < 10){
-          hora = '0'+hora;
-        }
-
-        if(element.IdUsuarioT===this.tatuador){
-          console.log(element.FechaInicio,'RRRR' , hora);
-        this.reservas.push({
-          title:'Reservado',
-          start: element.FechaInicio.split('T')[0]+'T'+hora+':00:00',
-
-        })
-        }
-      })
-
-      this.calendarOptions.events = this.reservas;
-      console.log(this.reservaService.reservas[0],this.reservas ,'YYY');
-    });
   }
   title:string='';
   calendarOptions: CalendarOptions = {
@@ -166,35 +139,35 @@ export class horario1Component implements OnInit {
     let cadena: any = info.dateStr;
     console.log(cadena.split('T')[1].split(':'));
   } */
+  urlimagen!: string;
+
+  async onfileChange(event:any){
+    const file = event.target.files[0];
+    if(file){
+      const path = `Referencias/${file.name}`
+      const uploadTask = await this.fireStorage.upload(path, file)
+      const url = await uploadTask.ref.getDownloadURL()
+      console.log(url);
+      this.urlimagen = url;
+    }
+  }
+
   async guardar(){
-
-    console.log(this.local.IdUsuario,'Esta essss');
-
+    console.log(this.start);
     this.reservaForm.value.FechaInicio = this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00';
     this.reservaForm.value.FechaFin = this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00';
     console.log(this.reservaForm.value.FechaInicio);
     console.log(this.reservaForm.value);
-    this.reservaService.newReserva(this.reservaForm.value).subscribe(  (response) => {
-
-      this.router.navigate(['/horario']);
-      window.location.reload();
-      this.inicializarData();
-    },
-    (error: HttpErrorResponse) => {
-      // Si ocurre un error, aquí puedes obtener el código de error de la consulta POST.
-      console.error('Código de error:', error.status);
-      console.error('Mensaje de error:', error.message);
-    });
 
 
-
+    console.log(this.reservaForm.value);
     let evento={
       title:'Reserva Guardada',
       start: this.start.split('T')[0]+'T'+this.start.split('T')[1].split(':')[0]+':00:00',
     };
     this.reservas.push(evento);
     this.modalRef?.hide();
-
+    console.log(evento);
 
     this.calendarOptions.events=this.reservas;
 
@@ -241,18 +214,6 @@ export class horario1Component implements OnInit {
     /* final.then(function(){
       window.location.reload();
     }); */
-  }
-  urlimagen!: string;
-
-  async onfileChange(event:any){
-    const file = event.target.files[0];
-    if(file){
-      const path = `Referencias/${file.name}`
-      const uploadTask = await this.fireStorage.upload(path, file)
-      const url = await uploadTask.ref.getDownloadURL()
-      console.log(url);
-      this.urlimagen = url;
-    }
   }
   }
 
